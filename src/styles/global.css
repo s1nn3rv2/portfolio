@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark: #11151C;
+  --color-surface: #212D40;
+  --color-muted: #364156;
+  --color-primary: #D66853;
+  --color-secondary: #7D4E57;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-linear-smooth {
+    background: linear-gradient(145deg in oklch, #202b3d 0%, #11151c 100%);
+}
+
+.bg-grid-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+/* dots */
+.bg-grid-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+}
+
+/* noise */
+.bg-grid-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD6v77HAAAADVBMVEUAAAD///+m2Z/d/897Z2U8WscHAAAAAnRSTlMAgJsr6gIAAAA9SURBVHja7cEBDQAAAMKg909tDjegAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8GzKBAAFAL7coAAAAAElFTkSuQmCC");
+}

@@ -1,5 +1,30 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
+
+import tailwindcss from '@tailwindcss/vite';
+
+import icon from "astro-icon";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  vite: {
+    plugins: [tailwindcss()]
+  },
+
+  fonts: [{
+    provider: fontProviders.google(),
+    name: "JetBrains Mono",
+    cssVariable: "--font-mono",
+  },
+  {
+    provider: fontProviders.google(),
+    name: "Inter",
+    cssVariable: "--font-sans",
+    subsets: ["latin", "latin-ext"],
+  }],
+
+  integrations: [icon({
+    include: {
+      mdi: ["github", "code-braces", "email", "linkedin"],
+  }})]
+});

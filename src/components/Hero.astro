@@ -1,0 +1,37 @@
+---
+import {Icon} from 'astro-icon/components'
+---
+
+<div class="relative w-screen h-screen bg-linear-smooth bg-grid-bg flex items-center justify-center p-6">
+
+    <div class="max-w-xl w-full flex flex-col z-10">
+
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tighter text-white">
+            Hi, I'm <span class="text-primary">Łukasz</span>
+        </h1>
+
+        <p class="font-mono text-gray-400 mt-6 text-sm md:text-base leading-relaxed">
+            I engineer software that scales and engages. As the creator of <span class="text-white font-semibold">Pyroworks</span> (700K+ downloads on Steam) and a freelance web developer, I bridge the gap between creative visual simulation and robust cloud engineering.
+        </p>
+
+        <div class="mt-8 pt-6 border-t border-muted/20 flex gap-6 text-xs font-mono text-white/45">
+            <div class="flex space-x-1 items-center">
+                <Icon name="mdi:code-braces" size={16}/>
+                <a href="#" class="hover:text-primary transition-colors">/projects</a>
+            </div>
+            <div class="flex space-x-1 items-center">
+                <Icon name="mdi:github" size={16} />
+                <a href="#" class="hover:text-primary transition-colors">/github</a>
+            </div>
+            <div class="flex space-x-1 items-center">
+                <Icon name="mdi:linkedin" size={16} />
+                <a href="#" class="hover:text-primary transition-colors">/linkedin</a>
+            </div>
+            <div class="flex space-x-1 items-center">
+                <Icon name="mdi:email" size={16} />
+                <a href="#" class="hover:text-primary transition-colors">/contact</a>
+            </div>
+        </div>
+
+    </div>
+</div>
