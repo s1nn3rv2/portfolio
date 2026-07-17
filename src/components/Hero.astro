@@ -1,5 +1,6 @@
 ---
 import {Icon} from 'astro-icon/components'
+import MobileNav from './MobileNav.astro';
 ---
 
 <div class="relative w-screen h-screen bg-linear-smooth bg-grid-bg flex items-center justify-center p-6">
@@ -14,24 +15,121 @@ import {Icon} from 'astro-icon/components'
             I engineer software that scales and engages. As the creator of <span class="text-white font-semibold">Pyroworks</span> (700K+ downloads on Steam) and a freelance web developer, I bridge the gap between creative visual simulation and robust cloud engineering.
         </p>
 
-        <div class="mt-8 pt-6 border-t border-muted/20 flex gap-6 text-xs font-mono text-white/45">
-            <div class="flex space-x-1 items-center">
+        <div id="hero-menu" class="mt-8 pt-6 border-t border-muted/20 flex gap-6 text-xs font-mono text-white/45 relative">
+            <div id="placeholder-projects" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
                 <Icon name="mdi:code-braces" size={16}/>
-                <a href="#" class="hover:text-primary transition-colors">/projects</a>
+                <span>/projects</span>
             </div>
-            <div class="flex space-x-1 items-center">
-                <Icon name="mdi:github" size={16} />
-                <a href="#" class="hover:text-primary transition-colors">/github</a>
+
+            <div id="placeholder-skills" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
+                <Icon name="mdi:briefcase-outline" size={16}/>
+                <span>/skills</span>
             </div>
-            <div class="flex space-x-1 items-center">
-                <Icon name="mdi:linkedin" size={16} />
-                <a href="#" class="hover:text-primary transition-colors">/linkedin</a>
+
+            <div id="placeholder-contact" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
+                <Icon name="mdi:email" size={16}/>
+                <span>/contact</span>
             </div>
-            <div class="flex space-x-1 items-center">
-                <Icon name="mdi:email" size={16} />
-                <a href="#" class="hover:text-primary transition-colors">/contact</a>
+
+            <div id="placeholder-github" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
+                <Icon name="mdi:github" size={16}/>
+                <span>/github</span>
+            </div>
+
+            <div id="placeholder-linkedin" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
+                <Icon name="mdi:linkedin" size={16}/>
+                <span>/linkedin</span>
             </div>
         </div>
 
     </div>
 </div>
+
+<MobileNav />
+
+<div id="folder-root" class="fixed z-50 font-mono text-xs text-primary font-bold opacity-0 transition-opacity duration-300 pointer-events-none flex items-center gap-1 origin-top-left" style="will-change: transform;">
+    <span>📂 portfolio</span>
+</div>
+
+<a id="link-projects" href="#projects" class="animating-menu-link fixed top-0 left-0 z-50 flex items-center font-mono text-xs text-white/45 hover:text-primary origin-top-left opacity-0" style="will-change: transform; transition: opacity 0.2s ease, color 0.3s ease;">
+    <span class="tree-branch text-white/20 select-none">├──</span>
+    <Icon name="mdi:code-braces" size={16} class="mr-1"/>
+    <span class="flex items-center">
+        /projects
+    </span>
+</a>
+
+<a id="link-skills" href="#skills" class="animating-menu-link fixed top-0 left-0 z-50 flex items-center font-mono text-xs text-white/45 hover:text-primary origin-top-left opacity-0" style="will-change: transform; transition: opacity 0.2s ease, color 0.3s ease;">
+    <span class="tree-branch text-white/20 select-none">├──</span>
+    <Icon name="mdi:briefcase-outline" size={16} class="mr-1"/>
+    <span class="flex items-center">
+        /skills
+    </span>
+</a>
+
+<a id="link-contact" href="#contact" class="animating-menu-link fixed top-0 left-0 z-50 flex items-center font-mono text-xs text-white/45 hover:text-primary origin-top-left opacity-0" style="will-change: transform; transition: opacity 0.2s ease, color 0.3s ease;">
+    <span class="tree-branch text-white/20 select-none">└──</span>
+    <Icon name="mdi:email" size={16} class="mr-1"/>
+    <span class="flex items-center">
+        /contact
+    </span>
+</a>
+
+<a id="link-github" href="https://github.com/s1nn3rv2" target="_blank" class="animating-menu-link fixed top-0 left-0 z-50 flex items-center font-mono text-xs text-white/45 hover:text-primary origin-top-left opacity-0" style="will-change: transform; transition: opacity 0.2s ease, color 0.3s ease;">
+    <span class="tree-branch text-white/20 select-none">    ├──</span>
+    <Icon name="mdi:github" size={16} class="mr-1"/>
+    <span class="flex items-center">
+        /github
+    </span>
+</a>
+
+<a id="link-linkedin" href="https://www.linkedin.com/in/%C5%82ukasz-dzierbicki-1128a041b/" target="_blank" class="animating-menu-link fixed top-0 left-0 z-50 flex items-center font-mono text-xs text-white/45 hover:text-primary origin-top-left opacity-0" style="will-change: transform; transition: opacity 0.2s ease, color 0.3s ease;">
+    <span class="tree-branch text-white/20 select-none">    └──</span>
+    <Icon name="mdi:linkedin" size={16} class="mr-1"/>
+    <span class="flex items-center">
+        /linkedin
+    </span>
+</a>
+
+<style>
+    .animating-menu-link .tree-branch {
+        max-width: 0;
+        opacity: 0;
+        transform: scaleX(0);
+        display: inline-flex;
+        align-items: center;
+        overflow: hidden;
+        white-space: pre;
+        transition: max-width 0.3s ease, opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease;
+    }
+    .animating-menu-link.is-sticky .tree-branch {
+        max-width: 64px;
+        opacity: 0.25;
+        transform: scaleX(1);
+        margin-right: 4px;
+    }
+    .animating-menu-link .text-primary-slash {
+        max-width: 12px;
+        opacity: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: max-width 0.3s ease, opacity 0.3s ease;
+    }
+    .animating-menu-link.is-sticky .text-primary-slash {
+        max-width: 0;
+        opacity: 0;
+    }
+
+    @media (max-width: 767px) {
+        .animating-menu-link .tree-branch {
+            display: none !important;
+        }
+    }
+</style>
+
+<script>
+    import '../scripts/navigation.ts';
+</script>

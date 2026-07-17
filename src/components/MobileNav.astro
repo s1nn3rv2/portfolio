@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div id="mobile-top-nav" class="md:hidden fixed top-0 left-0 w-full z-50 bg-dark/90 backdrop-blur-md border-b border-muted/10 px-6 py-4 flex items-center justify-between opacity-0 pointer-events-none transition-opacity duration-300">
+    <span class="font-mono text-xs text-white font-bold flex items-center gap-1 select-none"><Icon name="mdi:folder-open" size={16}/> portfolio</span>
+    <div class="flex gap-4 font-mono text-xs">
+        <a id="mob-projects" href="#projects" class="mobile-nav-link text-white/45 hover:text-primary transition-colors duration-200 flex items-center gap-1">
+            <Icon name="mdi:code-braces" size={14}/>
+            <span>projects</span>
+        </a>
+        <a id="mob-skills" href="#skills" class="mobile-nav-link text-white/45 hover:text-primary transition-colors duration-200 flex items-center gap-1">
+            <Icon name="mdi:briefcase-outline" size={14}/>
+            <span>skills</span>
+        </a>
+        <a id="mob-contact" href="#contact" class="mobile-nav-link text-white/45 hover:text-primary transition-colors duration-200 flex items-center gap-1">
+            <Icon name="mdi:email" size={14}/>
+            <span>contact</span>
+        </a>
+    </div>
+</div>

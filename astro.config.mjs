@@ -25,6 +25,6 @@ export default defineConfig({
 
   integrations: [icon({
     include: {
-      mdi: ["github", "code-braces", "email", "linkedin"],
+      mdi: ["github", "code-braces", "email", "linkedin", "briefcase-outline", "folder-open", "heart"],
   }})]
 });
