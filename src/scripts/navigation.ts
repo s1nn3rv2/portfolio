@@ -72,10 +72,13 @@ function updatePositions(): void {
 
     let anySticky = false;
 
+    const screenWidth = window.innerWidth;
+    const isMidScreen = screenWidth <= 1440;
+
     const targetTopBase = isMobile ? 16 : 48;
-    const targetLeft = isMobile ? 16 : 36;
-    const itemSpacing = isMobile ? 24 : 40;
-    const targetScale = isMobile ? 0.95 : 1.6;
+    const targetLeft = isMobile ? 16 : (isMidScreen ? 20 : 36);
+    const itemSpacing = isMobile ? 24 : (isMidScreen ? 30 : 40);
+    const targetScale = isMobile ? 0.95 : (isMidScreen ? 1.25 : 1.6);
 
     links.forEach((link, index) => {
         const id = link.id.replace('link-', '');
