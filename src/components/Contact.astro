@@ -1,7 +1,54 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const email = 'lukaszdzierbickii@gmail.com';
+
+const socials = [
+    { label: '/github', href: 'https://github.com/s1nn3rv2', icon: 'mdi:github' },
+    {
+        label: '/linkedin',
+        href: 'https://www.linkedin.com/in/%C5%82ukasz-dzierbicki-1128a041b/',
+        icon: 'mdi:linkedin',
+    },
+    { label: '/lunniestudio', href: 'https://lunniestudio.com', icon: 'mdi:web' },
+];
 ---
 
-<section id="contact" class="relative min-h-screen pt-32 pb-24 px-6 md:pl-24 md:pr-12 max-w-6xl mx-auto flex flex-col justify-center">
-    <h1>Contact</h1>
+<section
+    id="contact"
+    class="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pt-32 pb-24 md:pr-12 md:pl-24"
+>
+
+    <h2 class="max-w-3xl text-4xl font-bold tracking-tighter text-white md:text-6xl">
+        Let's build <span class="text-primary">something</span>.
+    </h2>
+
+    <p class="mt-6 max-w-xl font-mono text-sm leading-relaxed text-gray-400">
+        Open to freelance projects and collaborations.
+    </p>
+
+    <a
+        href={`mailto:${email}`}
+        class="group mt-10 inline-flex w-fit items-center gap-3 text-2xl font-bold tracking-tight text-white transition-colors duration-300 hover:text-primary md:text-4xl"
+    >
+        <span class="border-b-2 border-muted/40 pb-1 transition-colors duration-300 group-hover:border-primary">
+            {email}
+        </span>
+    </a>
+
+    <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-muted/20 pt-8">
+        {
+            socials.map((social) => (
+                <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center gap-2 font-mono text-xs text-white/45 transition-colors duration-300 hover:text-primary"
+                >
+                    <Icon name={social.icon} size={16} />
+                    <span>{social.label}</span>
+                </a>
+            ))
+        }
+    </div>
 </section>

@@ -1,6 +1,14 @@
 ---
 import {Icon} from 'astro-icon/components'
 import MobileNav from './MobileNav.astro';
+
+const navButtons = [
+  { label: '/projects', id: 'placeholder-projects', icon: 'mdi:code-braces'},
+  { label: '/skills', id: 'placeholder-skills', icon: 'mdi:briefcase-outline'},
+  { label: '/contact', id: 'placeholder-contact', icon: 'mdi:email'},
+  { label: '/github', id: 'placeholder-github', icon: 'mdi:github'},
+  { label: '/linkedin', id: 'placeholder-linkedin', icon: 'mdi:linkedin'},
+]
 ---
 
 <div class="relative w-screen h-screen bg-linear-smooth bg-grid-bg flex items-center justify-center p-6">
@@ -16,30 +24,12 @@ import MobileNav from './MobileNav.astro';
         </p>
 
         <div id="hero-menu" class="mt-8 pt-6 border-t border-muted/20 flex gap-6 text-xs font-mono text-white/45 relative">
-            <div id="placeholder-projects" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
-                <Icon name="mdi:code-braces" size={16}/>
-                <span>/projects</span>
-            </div>
-
-            <div id="placeholder-skills" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
-                <Icon name="mdi:briefcase-outline" size={16}/>
-                <span>/skills</span>
-            </div>
-
-            <div id="placeholder-contact" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
-                <Icon name="mdi:email" size={16}/>
-                <span>/contact</span>
-            </div>
-
-            <div id="placeholder-github" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
-                <Icon name="mdi:github" size={16}/>
-                <span>/github</span>
-            </div>
-
-            <div id="placeholder-linkedin" class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
-                <Icon name="mdi:linkedin" size={16}/>
-                <span>/linkedin</span>
-            </div>
+            {navButtons.map((navButton) => (
+              <div id={navButton.id} class="flex space-x-1 items-center opacity-0 select-none pointer-events-none">
+                  <Icon name={navButton.icon} size={16}/>
+                  <span>{navButton.label}</span>
+              </div>
+            ))}
         </div>
 
     </div>
