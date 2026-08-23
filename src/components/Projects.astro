@@ -9,23 +9,35 @@ const projects = [
         summary: 'A highly accurate PC pyrotechnics simulation game released on Steam.',
         points: [
             'Achieved over 700,000 unique downloads, building and scaling an active, global enthusiast community.',
-            'Partnered with real-life industry manufacturers (including Funke, Blackboxx, Nico) to legally license and accurately translate physical pyrotechnic products into digital assets.',
+            'Partnered with real-world industry manufacturers (including Funke, Blackboxx, Nico) to legally license and accurately translate physical pyrotechnic products into digital assets.',
             'Managed product deployment, full Steam pipeline integration and community features including Steam Workshop modding support for community-created assets.',
         ],
         tags: ['Unity', 'C#', 'Steamworks'],
         link: { label: 'View on Steam', href: 'https://store.steampowered.com/app/2507640/Pyroworks/', icon: 'mdi:steam' },
     },
     {
-        company: 'Freelance',
-        role: 'Web Developer',
+        company: 'Lunnie Studio',
+        role: 'Founder & Web Developer',
         period: '2026 - Present',
-        summary: "Designing and building high-performance web applications specialized to clients' needs.",
+        summary: "Designing and building high-performance web applications tailored to clients' needs.",
         points: [
             'Developed production-ready web applications using modern stacks and tools like SvelteKit, Astro and TailwindCSS.',
-            'Configured modern cloud infrastructure utilizing Cloudflare and Google Cloud Platform.',
+            'Configured cloud infrastructure using Cloudflare, Docker and Google Cloud Platform.',
         ],
-        tags: ['SvelteKit', 'Astro', 'TailwindCSS', 'Cloudflare', 'GCP'],
+        tags: ['SvelteKit', 'Astro', 'TailwindCSS', 'Cloudflare', 'Docker', 'GCP'],
         link: { label: 'lunniestudio.com', href: 'https://lunniestudio.com', icon: 'mdi:web' },
+    },
+    {
+        company: 'Druknijmy.pl',
+        role: 'Creator & Developer',
+        period: '2026 - Present',
+        summary: 'A 3D printing on demand platform with instant online quoting.',
+        points: [
+            'Built an automated quoting engine that parses uploaded STL and 3MF models and returns instant pricing from the chosen material and print parameters.',
+            'Developed the full customer order flow including checkout and order tracking.',
+        ],
+        tags: ['STL', '3MF'],
+        link: { label: 'druknijmy.pl', href: 'https://druknijmy.pl', icon: 'mdi:web' },
     },
     {
         company: 'AnySpace',
@@ -33,12 +45,37 @@ const projects = [
         period: '2026 - Present',
         summary: 'A local-first mobile application built for physical space visual mapping.',
         points: [
-            'Engineered a responsive, highly fluid mobile frontend using Flutter and Dart.',
-            'Integrated AI capabilities via LLM APIs to automate smart spatial categorization and enhance user interaction.',
+            'Engineered a responsive mobile frontend using Flutter and Dart.',
+            'Integrated AI capabilities via LLM APIs to automate smart spatial categorization.',
             'Managed the end-to-end release cycle including beta testing channels and live delivery on the Google Play Console.',
         ],
         tags: ['Flutter', 'Dart', 'LLM APIs', 'Play Console'],
         link: { label: 'Google Play', href: 'https://play.google.com/store/apps/details?id=com.lunniestudio.anyspace', icon: 'mdi:google-play' },
+    },
+];
+
+const openSource = [
+    {
+        company: 'audio-waveform-render',
+        role: 'Author',
+        period: 'Rust, MIT',
+        summary: 'A Rust library for rendering audio waveforms to vector and raster formats.',
+        points: [
+            'Built a Rust library that renders customizable audio waveforms to SVG and to raster formats including PNG, JPEG, WebP, AVIF and BMP.',
+        ],
+        tags: ['Rust', 'SVG', 'PNG', 'WebP', 'AVIF'],
+        link: { label: 'crates.io', href: 'https://crates.io/crates/audio-waveform-render', icon: 'mdi:code-braces' },
+    },
+    {
+        company: 'audio-waveform',
+        role: 'Author',
+        period: 'Rust, MIT',
+        summary: 'A utility library that generates visual waveform data from audio files.',
+        points: [
+            'Engineered a utility library that generates visual waveform data from audio files, built as the analysis layer beneath audio-waveform-render.',
+        ],
+        tags: ['Rust'],
+        link: { label: 'crates.io', href: 'https://crates.io/crates/audio-waveform', icon: 'mdi:code-braces' },
     },
 ];
 ---
@@ -55,5 +92,15 @@ const projects = [
 
     <div>
         {projects.map((project) => <Project {...project} />)}
+    </div>
+
+    <header class="mt-20 mb-14">
+        <h2 class="mt-3 text-3xl font-bold tracking-tighter text-white md:text-4xl">
+            Open Source
+        </h2>
+    </header>
+
+    <div>
+        {openSource.map((project) => <Project {...project} />)}
     </div>
 </section>
